@@ -1,0 +1,130 @@
+Conta Banco
+------------------------------------
++ numConta
+# tipo
+- dono
+- saldo
+- status
+------------------------------------
++ abrirConta()
++ fecharConta()
++ depositar()
++ sacar()
++ pagarMensal()
+getNumConta()
+setNumConta()
+getTipo()
+setTipo()
+getDono()
+setDono()
+getSaldo()
+setSaldo()
+getStatus()
+setStatus()
+-------------------------------------
+Classe ContaBanco
+//Atributos
+publico numConta: Inteiro
+protegido tipo: Caractere
+privado dono: Caractere
+privado saldo: Real
+privado status: Lógico
+
+//Métodos
+publico Metodo abrirConta(t:Caractere)
+//Antes de se criar o código de cada um, foi-se colocado (...) apenas para criar o metódo e depois fazer o código.
+    setTipo(t)
+    setStatus(verdadeiro)
+    se (t = 'CC') então
+        setSaldo(50)
+    senão se (t = 'CP') então
+        setSaldo(150)
+    FimSe
+FimMetodo
+
+publico Matodo fecharConta()
+    se (saldo > 0) então
+        Escreva("Conta com dinheiro")
+    senão se (saldo < 0) então
+        Escreva("Conta em débito")
+    senao
+        setSatus(falso)
+    FimSe
+FimMetodo
+
+publico Metodo depositar(v:Real)
+    se getStatus(verdadeiro) entao
+        setSaldo(getSaldo() + v)
+    senao 
+        Escreva("Impossível depositar")
+    FimSe
+FimMetodo
+
+publico Metodo sacar(v:Real)
+    se getStatus(verdadeiro) entao
+        se (getSaldo() > v) entao
+            setSaldo(getSaldo() - v)
+        senao
+            Escreva("Saldo insuficiente")
+        FimSe
+    senao
+        Escreva("Impossível sacar")
+    FimSe
+FimMetodo
+
+publico Metodo pagarMensal()
+    var v:Real
+    se (getTipo() = "CC") entao
+        v = 12
+    senao se (getTipo() = "CP") entao
+        v = 20
+    FimSe
+    se (getStatus(verdadeiro)) entao
+        se (getSaldo() > v) entao
+            setSaldo(getSaldo() - v)
+        senao
+            Escreva("Saldo Insuficiente")
+        FimSe
+    senao
+        Escreva("Impossível pagar")
+    FimSe
+FimMetodo
+
+//Métodos Especiais
+public Metodo Construtor()
+    saldo = 0
+    status = faslso
+FimMetodo
+publico Metodo setNumConta(n:Inteiro)
+    numConta = n
+FimMetodo
+publico Metodo getNumConta()
+    retorne numConta
+FimMetodo
+publico Metodo setTipo(t:Caractere)
+    tipo = t
+FimMetodo
+publico Metodo getTipo()
+    retorne tipo
+FimMetodo
+publico Metodo setDono(d:Caractere)
+    dono = d
+FimMetodo
+publico Metodo getDono()
+    retorne dono
+FimMetodo
+publico Metodo setSaldo(s:Real)
+    saldo = s
+FimMetodo
+publico Metodo getSaldo()
+    retone saldo
+FimMetodo
+publico Metodo setStatus(stts:Logico)
+    status = stts
+FimMetodo
+Publico Metodo getStatus()
+    retorne status
+FimMetodo
+
+
+FimClasse
