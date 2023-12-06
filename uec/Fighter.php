@@ -1,5 +1,6 @@
 <?php 
-class Lutador{
+
+class Fighter{
     private $nome;
     private $nacionalidade;
     private $idade;
@@ -95,13 +96,8 @@ public function empatarLuta(){
     $this -> setEmpates ($this -> getEmpates()+1);
 }
 public function apresentar(){
-    echo "<p>Lutador: ", $this -> getNome(), "</p>";
-    echo "<p>Origem: ", $this -> getNacionalidade(), "</p>";
-    echo "<p>Idade: ", $this -> getIdade(), " anos </p>";
-    echo "<p>", $this -> getAltura(), " m de altura </p>";
-    echo "<p>Vitorias: ", $this -> getVitorias(), "</p>";
-    echo "<p>Derrotas: ", $this -> getDerrotas(), "</p>";
-    echo "<p>Empates: ", $this -> getEmpates(), "</p>";
+    
+    echo "<p>Chegoooooooooooou a HOOOOOOOORA! Tendo um cartel profissional de {$this -> getVitorias()} vitórias, {$this-> getDerrotas()} derrotas e {$this -> getEmpates()} empates. Ele tem {$this -> getAltura()}m de altura, pesando {$this -> getPeso()}kg. Lutando pelo(a) {$this -> getNacionalidade()}, apresento-os {$this-> getNome()}!!!</p>";
 }
 public function status (){
     echo "<p>{$this->getNome()} é da categoria {$this -> getCategoria()} e tem um cartel de {$this -> getVitorias()} vitórias, {$this -> getDerrotas()} derrotas e {$this -> getEmpates()} empates.</p>";
