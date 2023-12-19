@@ -1,10 +1,10 @@
 <?php
-class Pessoa{
+abstract class Pessoa{
     private $nome;
     private $idade;
     private $sexo;
 
-    public function fazerNiver(){
+    public final function fazerNiver(){
         $this->idade++;
     }
     public function setNome($nome){
@@ -24,6 +24,12 @@ class Pessoa{
     }
     public function getIdade(){
         return $this->idade;
+    }
+    public function __construct($nome, $idade, $sexo)
+    {
+        $this->setNome($nome);
+        $this->setIdade($idade);
+        $this->setSexo($sexo);
     }  
 }
 ?>

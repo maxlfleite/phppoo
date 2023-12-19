@@ -15,9 +15,19 @@ class Aluno extends Pessoa{
     public function getCurso(){
         return $this->curso;
     }
+    public function pagarMensalidade(){
+        echo "<p>Mensalidade de {$this->getNome()} paga!</p><br/>";
+    }
     public function cancelarMatricula(){
         $this->matricula = null;
+        $this->curso = null;
         echo "<p>Matricula cancelada</p>";
+    }
+    public function __construct($nome, $matricula, $curso)
+    {
+        $this->setNome($nome);
+        $this->setMatricula($matricula);
+        $this->setCurso($curso);
     }
 }
 ?>
