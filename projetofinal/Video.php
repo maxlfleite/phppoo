@@ -6,9 +6,11 @@ class Video implements AcoesVideo{
     private $views;
     private $curtidas;
     private $reproduzindo;
-    public function __construct($titulo, $avaliacoes = 1, $views = 0, $curtidas = 0, $reproduzindo = false){
+    private $totAvaliacoes;
+    public function __construct($titulo, $avaliacoes = 0, $totAvaliacoes=0, $views = 0, $curtidas = 0, $reproduzindo = false){
         $this->titulo = $titulo;
         $this->avaliacoes = $avaliacoes;
+        $this->totAvaliacoes = $totAvaliacoes;
         $this->views = $views;
         $this->curtidas = $curtidas;
         $this->reproduzindo = $reproduzindo;
@@ -32,7 +34,8 @@ class Video implements AcoesVideo{
         return $this->avaliacoes;
     }
     public function setAvaliacoes($avaliacoes){
-        $this->avaliacoes = $avaliacoes;
+        $media = ($this->avaliacoes + $avaliacoes)/$this->getTotAvaliacoes();
+        $this->avaliacoes = $media;
     }
     public function getViews(){
         return $this->views;
@@ -51,6 +54,12 @@ class Video implements AcoesVideo{
     }
     public function setReproduzindo($reproduzindo){
         $this->reproduzindo = $reproduzindo;
+    }
+    public function getTotAvaliacoes(){
+        return $this->totAvaliacoes;
+    }
+    public function setTotAvaliacoes($totAvaliacoes){
+        $this->totAvaliacoes = $totAvaliacoes;
     }
 }
 ?>
